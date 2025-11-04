@@ -6,7 +6,7 @@
 }: {
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
-  users.users.root.hashedPassword = "";
+  users.users.root.hashedPassword = "!";
 
   # customise /etc/nix/nix.conf declaratively via `nix.settings`
   nix.settings = {
