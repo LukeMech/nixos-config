@@ -3,9 +3,6 @@
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
 
-  services.gnome.core-apps.enable = false;
-  services.gnome.core-developer-tools.enable = false;
-  services.gnome.games.enable = false;
   # services.xserver.excludePackages = [ pkgs.xterm ];
 
   services.displayManager.autoLogin = {
@@ -13,8 +10,13 @@
     user = username;
   };
 
+  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
+  programs.firefox.preferences = {
+    # disable libadwaita theming for Firefox
+    "widget.gtk.libadwaita-colors.enabled" = false;
+  };
+
   environment.systemPackages = with pkgs; [
 
   ];
-
 }
