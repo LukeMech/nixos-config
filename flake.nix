@@ -42,6 +42,7 @@
           modules = [
             disko.nixosModules.disko
             ./hosts/yoga-chromebook
+            ./users/${username}/system.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
