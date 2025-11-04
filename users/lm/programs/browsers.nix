@@ -17,7 +17,7 @@
         in {
           "*".installation_mode = "blocked";
       
-          uBlock0@raymondhill.net" = {
+          "uBlock0@raymondhill.net" = {
             install_url       = moz "ublock-origin";
             installation_mode = "force_installed";
             updates_disabled  = false;
