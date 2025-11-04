@@ -4,6 +4,9 @@
   username,
   ...
 }: {
+
+  system.copySystemConfiguration = true;
+
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
   users.users.root.hashedPassword = "!";
