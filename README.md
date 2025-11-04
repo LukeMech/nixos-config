@@ -25,5 +25,7 @@ sudo nixos-install --flake /mnt/etc/nixos#$HOST --root /mnt
 # Update later
 ```
 export HOST=yoga-chromebook
-sudo nixos-rebuild switch --flake github:lukemech/nixos-config#$HOST
+cd /etc/nixos
+sudo git pull
+sudo nixos-rebuild switch --flake .#$HOST
 ```
