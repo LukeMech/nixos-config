@@ -8,7 +8,7 @@
 }: {
   imports = [
     ../../modules/system.nix
-    ../../modules/gnome.nix
+    ../../modules/cosmic.nix
 
     ./disko-configuration.nix
     
