@@ -20,17 +20,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    catppuccin-bat = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
+    disko.url = "github:nix-community/disko";
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
+    disko,
     ...
   }: {
     nixosConfigurations = {
@@ -43,8 +40,8 @@
           system = "x86_64-linux";
 
           modules = [
+            disko.nixosModules.disko
             ./hosts/yoga-chromebook
-
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
