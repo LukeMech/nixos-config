@@ -15,8 +15,8 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
   --mode disko hosts/$HOST/disko-configuration.nix
 
 # 2. Copy your flake config into the target system
-mkdir -p /mnt/etc/nixos
-cp -r . /mnt/etc/nixos
+sudo mkdir -p /mnt/etc/nixos
+sudo cp -r . /mnt/etc/nixos
 
 # 3. Install using your flake as the system config
 sudo nixos-install --flake /mnt/etc/nixos#$HOST --root /mnt
