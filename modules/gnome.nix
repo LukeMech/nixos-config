@@ -8,6 +8,7 @@
   services.gnome.core-developer-tools.enable = false;
   services.gnome.games.enable = false;
   environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
   programs.dconf.profiles.user.databases = [
     {
@@ -21,6 +22,10 @@
         };
       };
     }
+  ];
+
+  environment.systemPackages = with pkgs; [
+    gnome-console
   ];
 
 }
