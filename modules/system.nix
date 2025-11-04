@@ -78,7 +78,7 @@
     curl
     git
     lm_sensors # for `sensors` command
-    screenfetchMinimal
+    fastfetchMinimal
   ];
 
   # Enable sound with pipewire.
