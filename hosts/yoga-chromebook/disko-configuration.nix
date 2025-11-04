@@ -13,6 +13,7 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot/efi";
+              mountOptions = [ "uid=0" "gid=0" "umask=0077" ];
             };
           };
           primary = {
