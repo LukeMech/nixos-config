@@ -2,11 +2,28 @@
 
 # Switch from existing installation
 ```
-sudo nixos-rebuild switch --flake .#yoga-chromebook
+export HOST=yoga-chromebook
+sudo nixos-rebuild switch --flake .#$HOST
 ```
 
 # Configuring from live installer
 ```
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko hosts/yoga-chromebook/disko-configuration.nix
-sudo nixos-install --flake .#yoga-chromebook --root /mnt
+export HOST=yoga-chromebook
+
+# 1. Partition/disks using Disko
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- \
+  --mode disko hosts/$HOST/disko-configuration.nix
+
+# 2. Copy your flake config into the target system
+mkdir -p /mnt/etc/nixos
+cp -r . /mnt/etc/nixos
+
+# 3. Install using your flake as the system config
+sudo nixos-install --flake /mnt/etc/nixos#$HOST --root /mnt
+```
+
+# Update later
+```
+export HOST=yoga-chromebook
+sudo nixos-rebuild switch --flake github:lukemech/nixos-config#$HOST
 ```
