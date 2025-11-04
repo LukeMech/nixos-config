@@ -4,12 +4,9 @@
   username,
   ...
 }: {
-  # ============================= User related =============================
-
-  # given the users in this list the right to specify additional substituters via:
-  #    1. `nixConfig.substituers` in `flake.nix`
-  #    2. command line args `--options substituers http://xxx`
-  nix.settings.trusted-users = [username];
+  security.sudo.enable = true;
+  security.sudo.wheelNeedsPassword = false;
+  users.users.root.hashedPassword = "";
 
   # customise /etc/nix/nix.conf declaratively via `nix.settings`
   nix.settings = {
